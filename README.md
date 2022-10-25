@@ -10,7 +10,7 @@
 We have been creating and running thread objects manually either by extending
 the `Thread` class or by implementing the `Runnable` interface. It’s fairly
 simple to create and run multiple threads when we’re dealing with small
-programs. However, if you were to write an enterprise-grade application with
+programs. However, if we need to write an enterprise-grade application with
 thousands of threads, it would quickly get overwhelming.
 
 Java provides the Executor framework as the primary abstraction for executing
@@ -20,7 +20,7 @@ handle thread management.
 ## What is a Task?
 
 A task is a logical unit of work which can be represented as an object of a
-class that implements the `Ruannable` interface. Each task is usually
+class that implements the `Runnable` interface. Each task is usually
 independent of other tasks so that it can be completed by a single thread.
 
 The classes in the Executor framework split task submission and task execution
@@ -28,9 +28,9 @@ into separate operations.
 
 ## Executors
 
-The Executors in Java defines one or more threads into a single pool and puts
-submitted tasks in a queue which are then executed by threads in the thread
-pool.
+To avoid creating a new thread for each task,
+executors are used to run asynchronous tasks and manage a pool of reusable threads.
+The ability to reuse rather than recreate threads improves resource management.
 
 ![ExecutorService Diagram](https://curriculum-content.s3.amazonaws.com/java-mod-5/executor-service-diagram.png)
 
@@ -47,7 +47,7 @@ lifecycle management:
 
 ## Thread Pools
 
-A thread pool in Java is an implementation of any of the executor interfaces.
+A thread pool in Java is an implementation of the executor interfaces.
 These allow us to separate task submission and execution.
 
 Thread pools contain worker threads that are assigned to a task. Once a worker
@@ -92,7 +92,16 @@ ourselves. This can make it significantly easier to write concurrent code while
 also making our code more maintainable.
 
 ## Conclusion
-
+ 
 We have learned about the Executor framework in Java that allows us to create
-multi-threaded programs more easily. Next, we will learn more about executors
+multithreaded programs more easily. Next, we will learn more about executors
 and how to use them.
+
+## Resources
+
+[Java 11 Executor](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/Executor.html)   
+[Java 11 ExecutorService](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ExecutorService.html)   
+[Java 11 ScheduledExecutorService](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/concurrent/ScheduledExecutorService.html)
+
+
+
